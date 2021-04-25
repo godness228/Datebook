@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="eventId">0</integer>
+    <string name="eventName">eventName</string>
+    <integer name="eventStart">0</integer>
+    <integer name="eventFinish">1</integer>
+    <string name="eventDescription">eventDescription</string>
+</resources>
