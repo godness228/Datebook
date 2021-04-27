@@ -1,4 +1,4 @@
-package com.example.datebook;
+package com.example.datebook.models;
 
 import androidx.annotation.NonNull;
 

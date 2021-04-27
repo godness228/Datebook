@@ -1,22 +1,22 @@
-package com.example.datebook;
+package com.example.datebook.activities;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.jetbrains.annotations.NotNull;
+import com.example.datebook.R;
+import com.example.datebook.models.Event;
+import com.example.datebook.utils.TimeUtils;
 
 import java.util.List;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
 
-    interface OnEventClickListener{
+    public interface OnEventClickListener{
         void onEventClick(Event event, int position);
     }
 
@@ -25,7 +25,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     private final LayoutInflater inflater;
     private final List<Event> events;
 
-    EventAdapter(Context context, List<Event> events, OnEventClickListener onClickListener) {
+    public EventAdapter(Context context, List<Event> events, OnEventClickListener onClickListener) {
         this.onClickListener = onClickListener;
         this.events = events;
         this.inflater = LayoutInflater.from(context);
@@ -41,8 +41,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(EventAdapter.ViewHolder holder, int position) {
         Event event = events.get(position);
-        holder.eventStart.setText(Convert.convertMilToString(event.getEventStart()));
-        holder.eventFinish.setText(Convert.convertMilToString(event.getEventFinish()));
+        holder.eventStart.setText(TimeUtils.getHoursString(event.getEventStart()));
+        holder.eventFinish.setText(TimeUtils.getHoursString(event.getEventFinish()));
         holder.eventName.setText(event.getEventName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener(){

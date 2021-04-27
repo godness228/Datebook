@@ -1,26 +1,21 @@
-package com.example.datebook;
+package com.example.datebook.utils;
 
 import android.content.Context;
 import android.util.Log;
 
+import com.example.datebook.models.Event;
 import com.google.gson.Gson;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
-
-import io.realm.Realm;
-import io.realm.RealmObject;
 
 public class JSONHelper {
     private static final String FILE_NAME = "eventDetails.json";
 
-    static boolean exportToJSON(Context context, List<Event> events) {
+    public static boolean exportToJSON(Context context, List<Event> events) {
         Gson gson = new Gson();
         EventInfo eventInfo = new EventInfo();
         eventInfo.setEventDetails(events);
@@ -47,7 +42,7 @@ public class JSONHelper {
         return false;
     }
 
-    static List<Event> importFromJSON(Context context) {
+    public static List<Event> importFromJSON(Context context) {
 
         InputStreamReader streamReader = null;
         FileInputStream fileInputStream = null;
