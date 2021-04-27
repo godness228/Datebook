@@ -1,10 +1,12 @@
 package com.example.datebook.utils;
 
+import android.util.Log;
+
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class TimeUtils {
-    public final static long hourInMill = 1000 * 60 * 60;
+    public final static long hourInMillis = 1000 * 60 * 60;
 
     public static String getHoursString(long millis) {
         return String.format(Locale.getDefault(), "%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),

@@ -15,7 +15,7 @@ import java.util.List;
 public class JSONHelper {
     private static final String FILE_NAME = "eventDetails.json";
 
-    public static boolean exportToJSON(Context context, List<Event> events) {
+    public static void exportToJSON(Context context, List<Event> events) {
         Gson gson = new Gson();
         EventInfo eventInfo = new EventInfo();
         eventInfo.setEventDetails(events);
@@ -26,7 +26,6 @@ public class JSONHelper {
         try {
             fileOutputStream = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
             fileOutputStream.write(jsonString.getBytes());
-            return true;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -38,8 +37,6 @@ public class JSONHelper {
                 }
             }
         }
-
-        return false;
     }
 
     public static List<Event> importFromJSON(Context context) {

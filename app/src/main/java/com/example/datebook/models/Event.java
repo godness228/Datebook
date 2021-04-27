@@ -11,20 +11,17 @@ import io.realm.annotations.Required;
 public class Event extends RealmObject {
 
     @PrimaryKey
-    private long id;
-    @NonNull
+    private int id;
     private long eventStart;
-    @NonNull
     private long eventFinish;
-    @NonNull
     private String eventName;
     private String description;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
